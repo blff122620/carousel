@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>轮播demo</title>
+    <link rel="stylesheet" href="./static/css/reset.css">
+    <link rel="stylesheet" href="./static/css/global.css">
+    <style>
+    body {
+        background: url(./static/img/carousel/body_bg.jpg) center 308px;
+    }
+    
+    .top {
+        /*width: 1920px;*/
+        height: 308px;
+        background: url("./static/img/carousel/wrap_bg.jpg") center;
+        /*background-position: center;*/
+    }
+    
+    .carousel-wrap {
+        margin: 0 auto;
+        width: 1224px;
+        height: 800px;
+    }
+    
+    .carousel-wrap .carousel {
+        position: relative;
+        width: inherit;
+        overflow: hidden;
+        white-space: nowrap;
+        font-size: 0;
+        height: 500px;
+        cursor: pointer;
+    }
+    
+    .carousel-wrap .carousel .carousel-content {
+        position: absolute;
+    }
+    
+    .carousel-wrap .carousel .carousel-content li {
+        display: inline-block;
+        width: 1224px;
+        height: 500px;
+    }
+    
+    .carousel-content-1 {
+        background: url("./static/img/carousel/banner_00.jpg");
+    }
+    
+    .carousel-content-2 {
+        background: url("./static/img/carousel/banner_01.jpg");
+    }
+    
+    .carousel-content-3 {
+        background: url("./static/img/carousel/banner_02.jpg");
+    }
+    
+    .carousel-content-4 {
+        background: url("./static/img/carousel/banner_03.jpg");
+    }
+    
+    .carousel-content-5 {
+        background: url("./static/img/carousel/banner_04.jpg");
+    }
+    
+    .carousel-content-6 {
+        background: url("./static/img/carousel/banner_05.jpg");
+    }
+    
+    .carousel-wrap .sbanner {
+        float: left;
+        width: 204px;
+        height: 172px;
+    }
+    
+    .carousel-wrap .banner {
+        position: relative;
+        margin-top: -42px;
+        cursor: pointer;
+    }
+    
+    .sbanner-1 {
+        background: url("./static/img/carousel/sbanner_00.png") right no-repeat;
+    }
+    
+    .sbanner-2 {
+        background: url("./static/img/carousel/sbanner_01.png") right no-repeat;
+    }
+    
+    .sbanner-3 {
+        background: url("./static/img/carousel/sbanner_02.png") right no-repeat;
+    }
+    
+    .sbanner-4 {
+        background: url("./static/img/carousel/sbanner_03.png") right no-repeat;
+    }
+    
+    .sbanner-5 {
+        background: url("./static/img/carousel/sbanner_04.png") right no-repeat;
+    }
+    
+    .sbanner-6 {
+        background: url("./static/img/carousel/sbanner_05.png") right no-repeat;
+    }
+    
+    .carousel-wrap .sbanner {
+        position: relative;
+    }
+    
+    .s-progress {
+        position: absolute;
+        width: 100%;
+        height: 5px;
+        bottom: 0;
+    }
+    
+    .s-progress >div {
+        height: 100%;
+        width: 0%;
+    }
+    
+    .s-progress-1 {
+        background: #7b5596;
+    }
+    
+    .s-progress-1 >div {
+        background: #49047a;
+    }
+    
+    .s-progress-2 {
+        background: #83a2cc;
+    }
+    
+    .s-progress-2 > div {
+        background: #13478f;
+    }
+    
+    .s-progress-3 {
+        background: #e18e40;
+    }
+    
+    .s-progress-3 > div {
+        background: #b94e00;
+    }
+    
+    .s-progress-4 {
+        background: #47acab;
+    }
+    
+    .s-progress-4 > div {
+        background: #00605f;
+    }
+    
+    .s-progress-5 {
+        background: #c86c8c;
+    }
+    
+    .s-progress-5 > div {
+        background: #a41a4a;
+    }
+    
+    .s-progress-6 {
+        background: #9089d6;
+    }
+    
+    .s-progress-6 > div {
+        background: #4a419e;
+    }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="top"></div>
+    </header>
+    <section class="carousel-wrap">
+        <article class="carousel">
+            <ul class="carousel-content" id="carousel-content">
+                <li class="carousel-content-1"></li>
+                <li class="carousel-content-2"></li>
+                <li class="carousel-content-3"></li>
+                <li class="carousel-content-4"></li>
+                <li class="carousel-content-5"></li>
+                <li class="carousel-content-6"></li>
+            </ul>
+        </article>
+        <aside class="banner clearfix" id="banner">
+            <ul>
+                <li class="sbanner sbanner-1">
+                    <div class="s-progress s-progress-1">
+                        <div></div>
+                    </div>
+                </li>
+                <li class="sbanner sbanner-2">
+                    <div class="s-progress s-progress-2">
+                        <div></div>
+                    </div>
+                </li>
+                <li class="sbanner sbanner-3">
+                    <div class="s-progress s-progress-3">
+                        <div></div>
+                    </div>
+                </li>
+                <li class="sbanner sbanner-4">
+                    <div class="s-progress s-progress-4">
+                        <div></div>
+                    </div>
+                </li>
+                <li class="sbanner sbanner-5">
+                    <div class="s-progress s-progress-5">
+                        <div></div>
+                    </div>
+                </li>
+                <li class="sbanner sbanner-6">
+                    <div class="s-progress s-progress-6">
+                        <div></div>
+                    </div>
+                </li>
+            </ul>
+        </aside>
+    </section>
+    <script>
+    var carouselTotalTime = 300; //ms
+    var carouselBody = document.querySelector("#carousel-content");
+    var progressBar = document.querySelectorAll(".s-progress > div");
+    var banner = document.querySelector("#banner");
+    var progressBar1 = document.querySelectorAll(".s-progress > div")[0];
+    var carouselBodyWidth = 1224; //轮播头图的单图宽度
+    var carouselBodyStep = -40; //轮播头图的步长
+    var carouselBodyInterval = 15; //轮播头图的移动时间间隔ms
+    var carouselSuddenlyStep = 200; //轮播头图到最后瞬间移动的步长
+    var carouselCount = progressBarCount = 6; //轮播头图的个数
+    var progressBarWidth = 204, //小进度条长度
+        progressBarStep = 2, //小进度条步长
+        progressBarInterval = 50; //小进度条时间间隔ms
+    var nowProgressIndex = 0;
+    var sbanner = document.querySelectorAll(".sbanner");
+
+    //启动轮播
+    tabAnimation(nowProgressIndex);
+
+
+
+    //头图移动函数
+    function slide(element, width, step, interval, callback) {
+
+        var style = window.getComputedStyle(element);
+        var symbol = (width < 0); //判断正负方向移动  
+        var left = Number(style.left.slice(0, -2));
+        var des = left + width;
+
+        function move() {
+            left = Number(style.left.slice(0, -2));
+            if (((left + step) > des && des < 0) || ((left + step) < des && des >= 0)) {
+                element.style.left = left + step + "px";
+                element.slideId = setTimeout(move, interval);
+            } else {
+                element.style.left = des + "px"
+                clearTimeout(element.slideId);
+                if (typeof callback == "function") {
+                    callback();
+                }
+            }
+
+        }
+        element.slideId = setTimeout(move, interval);
+
+    }
+
+    function animation(element, from, to, callback) {
+        var distance = Math.abs(from - to); //距离的绝对值
+        var symbol = (to - from) / distance; //往哪个方向移动，﹢为向右移动
+        var step = Math.floor((distance * carouselBodyInterval) / carouselTotalTime); //每次都多少步长，
+        var cover = 0;
+
+        function move() {
+            var des = cover + step;
+            if (des <= distance) {
+                cover = des;
+                element.style.left = Number(element.style.left.slice(0, -2)) + step * symbol + "px";
+                setTimeout(move, carouselBodyInterval);
+            } else {
+                element.style.left = to + "px";
+                clearTimeout(element.progressId);
+                if (typeof callback == "function") {
+                    callback();
+                }
+            }
+        }
+        setTimeout(move, carouselBodyInterval);
+    }
+
+    function slideCarousel(element, clickedIndex, callback) {
+        var from = - nowProgressIndex * carouselBodyWidth;
+        from = Number(element.style.left.slice(0,-2));
+        var to = -clickedIndex * carouselBodyWidth;
+
+        animation(element, from, to, callback);
+    }
+    //进度条移动函数
+    function progress(element, des, step, interval, callback) {
+
+        var style = window.getComputedStyle(element);
+        var width = Number(style.width.slice(0, -2));
+
+        // 保存index值
+        nowProgressIndex = Array.prototype.slice.apply(progressBar).indexOf(element);
+
+        function move() {
+            width = Number(style.width.slice(0, -2));
+            if (width + step <= des) {
+                element.style.width = width + step + "px";
+                element.progressId = setTimeout(move, interval);
+            } else {
+                element.style.width = des + "px";
+                for (var i = 0; i < progressBar.length; i++) {
+                    progressBar[i].style.width = 0;
+                }
+                clearTimeout(element.progressId);
+                if (typeof callback == "function") {
+                    callback();
+                }
+            }
+        }
+        element.progressId = setTimeout(move, interval);
+
+    }
+    //动画切换
+    function tabAnimation(progressBarIndex) {
+        progress(progressBar[progressBarIndex], progressBarWidth, progressBarStep, progressBarInterval, function() {
+
+            slideCarousel(carouselBody, (progressBarIndex+1) % progressBarCount, function() {
+                tabAnimation((nowProgressIndex + 1) % progressBarCount);
+            });
+
+        });
+    }
+
+    //添加进度条点击事件
+
+    banner.addEventListener("click", function(event) {
+        (function() {
+            var clickedIndex; //当前点击的item索引
+            clearTimeout(carouselBody.slideId); //停止轮播动作
+            for (var i = 0; i < sbanner.length; i++) {
+                if (sbanner[i].contains(event.target)) {
+                    clickedIndex = i;
+                }
+                var item = sbanner[i].querySelector(".s-progress >div");
+                clearTimeout(item.progressId); //停止进度条动作
+                item.style.width = 0;
+            }
+            var width = -(clickedIndex - nowProgressIndex) * carouselBodyWidth;
+            // step = width * carouselBodyInterval;
+            var symbol = width < 0 ? 1 : -1;
+            console.log(width);
+            // slide(carouselBody, width, carouselBodyStep * symbol, carouselBodyInterval, function() {
+                
+            // });
+            slideCarousel(carouselBody,clickedIndex,function(){
+                tabAnimation(clickedIndex);
+            });
+
+        })();
+
+    });
+    </script>
+</body>
+
+</html>
